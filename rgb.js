@@ -1,4 +1,10 @@
 
+function pickrandom()
+{
+	var r= Math.floor(Math.random()*colors.length);
+	return colors[r];
+}
+
 var colors = [
 	"rgb(255, 0, 0)",
 	"rgb(255, 255, 0)",
@@ -7,12 +13,6 @@ var colors = [
 	"rgb(0, 0, 255)",
 	"rgb(255, 0, 255)"
 ];
-
-function pickrandom()
-{
-	var r= Math.floor(Math.random()*colors.length);
-	return colors[r];
-}
 
 var sqr = document.querySelectorAll(".square");
 var pickedColor = pickrandom();
