@@ -1,0 +1,34 @@
+#mycolor{
+	background-color: #232323;
+}
+
+.square{
+	width: 30%;
+	background-color: purple;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+}
+
+#mycontainer{
+	margin: 20px auto;
+	max-width: 600px;
+	margin: 
+}
+
+#myimprov{
+	color: white;
+	text-align: center;
+}
+
+#myjumbo{
+	padding-top: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 1rem;
+	margin-bottom: 0px;
+}
+
+.fade{
+	background-color: #232323;	
+}
