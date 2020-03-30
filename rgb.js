@@ -51,8 +51,7 @@ function setcolor(x)
 
 function buttoncolor()
 {
-
-	new_color.classList.toggle("buttoncolor")
+	new_color.classList.toggle("buttoncolor");
 }
 
 function chg_button()
