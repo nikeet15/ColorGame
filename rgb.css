@@ -13,7 +13,6 @@
 #mycontainer{
 	margin: 20px auto;
 	max-width: 600px;
-	margin: 
 }
 
 #myimprov{
@@ -31,4 +30,8 @@
 
 .fade{
 	background-color: #232323;	
+}
+
+.buttoncolor{
+	background-color: blue;
 }
