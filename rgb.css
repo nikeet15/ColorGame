@@ -7,6 +7,7 @@
 #colorDisplay{
 	text-transform: uppercase;
 	font-size: 60px;
+	transform: all 0.5s;
 }
 
 div p{
@@ -46,10 +47,12 @@ div p{
 }
 
 .fade{
+	/*to fade a square*/
 	background-color: #232323;	
 }
 
 .buttoncolor{
+	/*to toggle color of buttons when hovered or clicked*/
 	background-color: steelblue;
 	color: white;
 }

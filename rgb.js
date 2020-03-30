@@ -1,3 +1,5 @@
+
+//defining variables..
 var colors = [];
 var sqr = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
@@ -18,7 +20,7 @@ function pickrandom(x)
 
 function color_chooser(x)
 {
-	//makes chooses random colors
+	//chooses random colors
 	for (var i = 0; i < x; i++) 
 	{
 		var a= pickrandom(256);
@@ -39,8 +41,9 @@ function setcolor(x)
 	pickedColor = colors[pickrandom(level)];
 	colorDisplay.textContent = pickedColor;
 
-	// make stripe message blank
-	stripe.textContent= "";
+	// set initial texts
+	stripe.textContent= "Try less moves";
+	new_color.textContent="NEW COLORS";
 
 	// reset background color of jumbotron
 	jumbo.style.background= "steelblue"
@@ -99,7 +102,8 @@ for(var i = 0; i < sqr.length; i++)
 
 		if(clickedColor === pickedColor) 
 		{
-			console.log(clickedColor+" "+pickedColor);
+			console.log(clickedColor+" == "+pickedColor);
+			
 			for(var j=0; j<level; j++)
 			{
 				sqr[j].classList.remove("fade");
@@ -108,6 +112,7 @@ for(var i = 0; i < sqr.length; i++)
 				new_color.textContent= "PLAY AGAIN?"
 			}
 
+			//change jumbo background to correct color
 			jumbo.style.backgroundColor= clickedColor;
 		}
 		
@@ -119,7 +124,6 @@ for(var i = 0; i < sqr.length; i++)
 	});
 }
 
-
 new_color.addEventListener("click",function()
 	{
 		if(level==3)
@@ -128,6 +132,7 @@ new_color.addEventListener("click",function()
 		else
 			levelHard();
 	});
+
 new_color.addEventListener("mouseover",buttoncolor);
 new_color.addEventListener("mouseout",buttoncolor);
 easybtn.addEventListener("click",levelEasy);
