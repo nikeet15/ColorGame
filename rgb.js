@@ -43,7 +43,7 @@ function setcolor(x)
 	stripe.textContent= "";
 
 	// reset background color of jumbotron
-	jumbo.style.background= "#232323"
+	jumbo.style.background= "steelblue"
 
 	for(var i = 0; i < sqr.length; i++)
 		sqr[i].style.backgroundColor = colors[i];

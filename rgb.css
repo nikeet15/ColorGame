@@ -1,5 +1,18 @@
 #mycolor{
 	background-color: #232323;
+	/*font-family: "Montserrat";*/
+	font-weight: normal
+}
+
+#colorDisplay{
+	text-transform: uppercase;
+	font-size: 60px;
+}
+
+div p{
+	text-transform: uppercase;
+	font-size: 30px;
+	margin: 0 auto;
 }
 
 .square{
@@ -21,12 +34,12 @@
 }
 
 #myjumbo{
-	padding-top: 1rem;
-	padding-right: 1rem;
-	padding-bottom: 1rem;
-	padding-left: 1rem;
+	padding-top: 0rem;
+	padding-right: 0rem;
+	padding-bottom: 0rem;
+	padding-left: 0rem;
 	margin-bottom: 0px;
-	background-color: #232323;
+	background-color: steelblue;
 }
 
 .fade{
@@ -35,4 +48,27 @@
 
 .buttoncolor{
 	background-color: blue;
+}
+
+li button{
+	border: none;
+	background-color: white;
+	height: 100%;
+	font-size: 20px;
+	color: steelblue;
+	font-weight: 600;
+}
+
+#mynav{
+	height: 100%;
+	font-size: 20px;
+	color: steelblue;
+	font-weight: 600;	
+}
+
+#stripe{
+	margin: 0 auto;
+	padding-top: 0px;
+	border: none;
+	text-align: center;
 }
