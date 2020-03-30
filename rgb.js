@@ -38,6 +38,9 @@ function setcolor()
 	// make stripe message blank
 	stripe.textContent= "";
 
+	//reset background color of jumbotron
+	jumbo.style.background= "#232323"
+
 	for(var i = 0; i < sqr.length; i++)
 	sqr[i].style.backgroundColor = colors[i];
 }
@@ -64,6 +67,7 @@ for(var i = 0; i < sqr.length; i++)
 				sqr[j].classList.remove("fade");
 				sqr[j].style.backgroundColor= clickedColor;
 				stripe.textContent= "Correct"
+				new_color.textContent= "PLAY AGAIN?"
 			}
 
 			jumbo.style.backgroundColor= clickedColor;
