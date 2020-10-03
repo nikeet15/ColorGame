@@ -12,7 +12,7 @@ var mediumbtn = document.querySelector('#medium');
 var pickedColor;
 var level= 6;
 var easySquare = [1, 4];
-var mediumSquare = [0, 1, 3, 4];
+var mediumSquare = [0, 1, 2, 4];
 var hardSquare = [0, 1, 2, 3, 4, 5];
 
 //functions..........................................................
@@ -86,8 +86,8 @@ function levelEasy()
 	hardbtn.classList.remove("buttoncolor");
 	chg_button();
 	sqr[0].classList.add("fade");
-	sqr[3].classList.add("fade");
 	sqr[2].classList.add("fade");
+	sqr[3].classList.add("fade");
 	sqr[5].classList.add("fade");
 	setcolor(level);
 }
@@ -99,7 +99,7 @@ function levelMedium()
 	easybtn.classList.remove("buttoncolor");
 	hardbtn.classList.remove("buttoncolor");
 	chg_button();
-	sqr[2].classList.add("fade");
+	sqr[3].classList.add("fade");
 	sqr[5].classList.add("fade");
 	setcolor(level);
 }
