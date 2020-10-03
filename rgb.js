@@ -8,8 +8,12 @@ var new_color= document.querySelector("#new_color");
 var stripe= document.querySelector("#stripe");
 var easybtn= document.querySelector("#easy");
 var hardbtn= document.querySelector("#hard");
+var mediumbtn = document.querySelector('#medium');
 var pickedColor;
 var level= 6;
+var easySquare = [1, 4];
+var mediumSquare = [0, 1, 3, 4];
+var hardSquare = [0, 1, 2, 3, 4, 5];
 
 //functions..........................................................
 function pickrandom(x)
@@ -28,7 +32,7 @@ function color_chooser(x)
 		var c= pickrandom(256);
 
 		colors[i]= "rgb("+a+", "+b+", "+c+")";
-		console.log(colors[i]);
+	//	console.log(colors[i]);
 	}
 }
 
@@ -39,6 +43,7 @@ function setcolor(x)
 
 	// set color code to guess
 	pickedColor = colors[pickrandom(level)];
+	//console.log(pickedColor);
 	colorDisplay.textContent = pickedColor;
 
 	// set initial texts
@@ -48,8 +53,18 @@ function setcolor(x)
 	// reset background color of jumbotron
 	jumbo.style.background= "steelblue"
 
-	for(var i = 0; i < sqr.length; i++)
-		sqr[i].style.backgroundColor = colors[i];
+	if(x == 2){
+		for(var i=0; i<x; i++)
+			sqr[easySquare[i]].style.backgroundColor = colors[i];
+	}
+	else if(x == 4){
+		for(var i=0; i<x; i++)
+			sqr[mediumSquare[i]].style.backgroundColor = colors[i];
+	}
+	if(x == 6){
+		for(var i=0; i<x; i++)
+			sqr[hardSquare[i]].style.backgroundColor = colors[i];
+	}
 }
 
 function buttoncolor()
@@ -65,12 +80,26 @@ function chg_button()
 
 function levelEasy()
 {
-	level= 3;
+	level= 2;
 	easybtn.classList.add("buttoncolor");
-	hard.classList.remove("buttoncolor");
+	mediumbtn.classList.remove("buttoncolor");
+	hardbtn.classList.remove("buttoncolor");
 	chg_button();
+	sqr[0].classList.add("fade");
 	sqr[3].classList.add("fade");
-	sqr[4].classList.add("fade");
+	sqr[2].classList.add("fade");
+	sqr[5].classList.add("fade");
+	setcolor(level);
+}
+
+function levelMedium()
+{
+	level = 4;
+	mediumbtn.classList.add("buttoncolor");
+	easybtn.classList.remove("buttoncolor");
+	hardbtn.classList.remove("buttoncolor");
+	chg_button();
+	sqr[2].classList.add("fade");
 	sqr[5].classList.add("fade");
 	setcolor(level);
 }
@@ -80,9 +109,11 @@ function levelHard()
 	level= 6;
 	hardbtn.classList.add("buttoncolor");
 	easybtn.classList.remove("buttoncolor");
+	mediumbtn.classList.remove("buttoncolor");
 	chg_button();
+	sqr[0].classList.remove("fade");
 	sqr[3].classList.remove("fade");
-	sqr[4].classList.remove("fade");
+	sqr[2].classList.remove("fade");
 	sqr[5].classList.remove("fade");	
 	setcolor(level);
 }
@@ -104,13 +135,35 @@ for(var i = 0; i < sqr.length; i++)
 		{
 			console.log(clickedColor+" == "+pickedColor);
 			
-			for(var j=0; j<level; j++)
+			stripe.textContent= "Correct"
+			new_color.textContent= "PLAY AGAIN?"
+
+			if(level == 2){
+				for(var i=0; i<level ; i++){
+					sqr[easySquare[i]].style.backgroundColor = clickedColor;
+					sqr[easySquare[i]].classList.remove("fade");
+				}
+			}
+			else if(level == 4){
+				for(var i=0; i<level; i++){
+					sqr[mediumSquare[i]].style.backgroundColor = clickedColor;
+					sqr[mediumSquare[i]].classList.remove("fade");
+				}
+					
+			}
+			else {
+				for(var i=0; i<level; i++){
+					sqr[hardSquare[i]].style.backgroundColor = clickedColor;
+					sqr[hardSquare[i]].classList.remove("fade");
+				}
+					
+			}
+
+			/*for(var j=0; j<level; j++)
 			{
 				sqr[j].classList.remove("fade");
-				sqr[j].style.backgroundColor= clickedColor;
-				stripe.textContent= "Correct"
-				new_color.textContent= "PLAY AGAIN?"
-			}
+				sqr[j].style.backgroundColor= clickedColor;	
+			}*/
 
 			//change jumbo background to correct color
 			jumbo.style.backgroundColor= clickedColor;
@@ -126,9 +179,10 @@ for(var i = 0; i < sqr.length; i++)
 
 new_color.addEventListener("click",function()
 	{
-		if(level==3)
+		if(level==2)
 			levelEasy();
-
+		else if(level==4)
+			levelMedium();
 		else
 			levelHard();
 	});
@@ -137,4 +191,5 @@ new_color.addEventListener("mouseover",buttoncolor);
 new_color.addEventListener("mouseout",buttoncolor);
 easybtn.addEventListener("click",levelEasy);
 hardbtn.addEventListener("click",levelHard);
+mediumbtn.addEventListener("click",levelMedium);
 
